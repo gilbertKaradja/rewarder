@@ -1,0 +1,172 @@
+@charset 'UTF-8';
+
+html {
+    font-size: 10px;
+    background-color: #fafafa;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+div, label, span {
+    font-family: sans-serif;
+}
+
+
+/* styles for '...' */ 
+.block-with-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative; 
+    /* use this value to count block height */
+    line-height: 2em;
+    /* max-height = line-height (1.2) * lines max number (3) */
+    max-height: 4em; 
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: justify;  
+    /* place for '...' */
+    margin-right: -1em;
+    padding-right: 1em;
+}
+
+/* create the ... */
+.block-with-text:before {
+    /* points in the end */
+    content: '...';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
+}
+
+/* hide ... if we have text, which is less than or equal to max lines */
+.block-with-text:after {
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    /* set width and height */
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    /* bg color = bg color under block */
+    background: white;
+  }
+
+
+
+@media only screen and (min-device-width: 1400px) {
+    *::-webkit-scrollbar {
+    width: 8px;
+        cursor: pointer;
+    }
+
+
+    *::-webkit-scrollbar-thumb {
+    background-color: rgba(200,200,200,0.6);
+        cursor: pointer;
+    }
+}
+
+
+
+button.primary {
+  background-color: #41b3df;
+  color: white;
+  outline: none;
+  border: none;
+  height: 37px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+  
+  }
+  
+  table thead{
+    color: #00628f;
+  }
+  
+  
+  table thead td{
+    padding: 17px;
+    padding-left: 10px;
+    color: #348abe;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+  
+  table tr {
+    height: 50px;
+  }
+
+  table td {
+    padding: 10px;
+    font-size: 14px;
+    color: #777;
+    line-height: 20px;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  table td.align_center {
+    text-align: center;
+  }
+
+  table td.align_right {
+    text-align: right;
+  }
+  
+  table tbody tr:last-of-type td {
+    border: none;
+  }
+  
+  table td:last-child {
+    border-right: none;
+  }
+  
+  table td button{
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px;
+  }
+
+  
+  table tr:hover{
+    background: #f7f7f7;
+  }
+  
+  table thead tr:hover{
+    background: none;
+  }
+  
+  table tr.stripe {
+    /*background-color: #f9f9f9;*/
+  }

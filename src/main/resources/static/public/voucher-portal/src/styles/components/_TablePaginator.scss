@@ -1,0 +1,17 @@
+.table-paginator {
+    vertical-align: middle;
+    
+    button {
+        width: 80px;
+        border-radius: 3px;
+
+    }  
+    button:last-of-type {
+        margin-left: 10px;
+    } 
+
+    button:disabled {
+        background-color: #d5d5d5;
+        cursor: not-allowed;
+    }
+}

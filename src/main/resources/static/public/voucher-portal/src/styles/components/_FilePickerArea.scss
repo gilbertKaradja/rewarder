@@ -1,0 +1,100 @@
+.file-picker-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    background-color: white;
+    border: 2px dashed #CCC;
+    transition: background-color 0.2s;
+
+    &.active {
+        transition: background-color 0.2s;
+        background-color: #def2fa;
+    }
+
+    img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-top: 15px;
+        color: #aaa;
+
+        span {
+            color: #111;
+        }
+    }
+
+    .delim-text {
+        font-size: 18px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        color: #888;
+    }
+
+    button {
+        color: #48c5f8;
+        background-color: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        outline: none;
+        box-sizing: border-box;
+        border: none;
+        box-shadow: none;
+    }
+
+    button.pick-button {
+        border: 1.5px solid #48c5f8;
+        width: 120px;
+        height: 35px;
+        border-radius: 5px;
+    }
+
+    .selected-file-container {
+        display: flex;
+        flex-direction: row;
+        
+
+        div {
+            height: 35px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            border: 1.5px solid #DDD;
+            border-right: none;
+            vertical-align: middle;
+            box-sizing: border-box;
+            width: 250px;
+            padding-left: 10px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            
+            span {
+                font-size: 14px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap; 
+            }
+        }
+
+        button {
+            height: 35px;
+            // display: inline-block;
+            vertical-align: middle;
+            border: 1.5px solid #48c5f8;
+            box-sizing: border-box;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+    }
+
+
+    input {
+        display: none;
+    }
+}

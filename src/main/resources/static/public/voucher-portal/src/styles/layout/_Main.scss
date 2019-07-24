@@ -1,0 +1,71 @@
+.application-root {
+    max-width: 1000px;
+    margin: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.generate-control-area {
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        width: 150px;
+    }
+}
+
+.result-area {
+    
+    margin-top: 40px;
+    background-color: white;
+    margin-bottom: 60px;
+    padding: 20px;
+    box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    
+    .download-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-bottom: 25px;
+
+        button {
+            width: 150px;
+        }
+    }
+
+    .table-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+
+        .voucher-number {
+            font-size: 14px;
+            color: #666;
+        }
+        
+    }
+}
+
+button {
+    height: 35px;
+    background: white;
+    border: none;
+    color: black;
+    outline: none;
+    box-shadow: 0 2px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #F1F1F1;
+}
+
+
+#print-area {
+    display: none;
+}
