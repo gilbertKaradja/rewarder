@@ -7,6 +7,7 @@ import VoucherTable from './components/VoucherTable';
 import { CustomerVoucher } from './api/service.types';
 import TablePaginator, { TablePaginatorProps } from './components/TablePaginator/index';
 import VoucherTemplate from './components/VoucherTemplate';
+import NotificationBox, { notificationTypes } from './components/NotificationBox';
 
 const fileType: string = '.csv';
 const buttonText: string = 'Select a file';
@@ -14,6 +15,11 @@ const entriesPerPage: number = 6;
 
 
 interface State {
+  notification: {
+    show: boolean;
+    notificationType: string;
+    message: string;
+  },
   orderSummariesFile: File | null;
   customerVouchers: CustomerVoucher[] | null,
   pagination: {
@@ -31,8 +37,14 @@ class App extends Component<{}, State> {
     super(props)
 
     this.state = {
+      notification: {
+        show: false,
+        notificationType: 'error',
+        message: 'sds'
+      },
       orderSummariesFile: null,
       customerVouchers: null,
+
       pagination: {
         currentPage: 0,
         totalEntries: 0,
@@ -44,7 +56,7 @@ class App extends Component<{}, State> {
   }
 
   render() {
-    const { customerVouchers, pagination } = this.state;
+    const { customerVouchers, notification, pagination } = this.state;
 
     let customerVouchersPage: CustomerVoucher[] = [];
 
@@ -66,6 +78,8 @@ class App extends Component<{}, State> {
         onDrop={this.onDropHandler}
         onDragOver={this.onDropHandler}
       >
+
+      <NotificationBox {...notification} />
 
         <h1>Voucher Portal</h1>
 
@@ -146,7 +160,8 @@ class App extends Component<{}, State> {
 
       generateVouchersResponse = response.data;
     } catch (err) {
-
+      this.showNotification('Error generating vouchers', notificationTypes.ERROR);
+      return;
     }
 
     const totalEntries = generateVouchersResponse != null ? generateVouchersResponse.length : 0;
@@ -201,9 +216,26 @@ class App extends Component<{}, State> {
 
   }
 
-  onDropHandler = (event: SyntheticEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
+  showNotification = (message: string, notificationType: string) => {
+    let notificationState = {
+      message: message,
+      notificationType: notificationType,
+      show: true
+    }
+
+
+    this.setState({notification: notificationState} ,() => {
+      
+      setTimeout(() => {
+        let notificationState = {
+          message: '',
+          notificationType: '',
+          show: false
+        }
+  
+        this.setState({notification: notificationState})
+      }, 5000);
+    });
   }
 }
 

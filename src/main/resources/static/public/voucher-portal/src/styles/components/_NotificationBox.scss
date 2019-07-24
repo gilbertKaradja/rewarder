@@ -1,0 +1,60 @@
+.notification-box {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 99999999999;
+    height: 0px;
+    text-align: right;
+
+    .content {
+        display: none;
+        text-align: left;
+        position: relative;
+        animation: fade--in 0.5s ease-in;
+        height: 100%;
+        width: 290px;
+
+        &.show {
+            display: inline-block;
+        }
+
+        div{
+            padding: 15px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-radius: 3px;
+            margin-top: 10px;
+            margin-right: 20px;
+            box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+            line-height: 28px;
+            opacity: 0.95;
+            font-size: 16px;
+        }
+
+
+
+        &.error div{
+            background-color: #c74b4b;
+            color: white;
+        }
+
+        &.success div{
+            background-color: #2bb77e;
+            color: white;
+        }
+    }
+
+}
+
+
+
+@keyframes fade--in {
+from {
+opacity: 0;
+}
+
+to {
+opacity: 1;
+}
+}
+

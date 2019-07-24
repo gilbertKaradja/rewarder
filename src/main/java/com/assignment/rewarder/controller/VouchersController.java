@@ -1,5 +1,6 @@
 package com.assignment.rewarder.controller;
 
+import com.assignment.rewarder.exception.BadCsvException;
 import com.assignment.rewarder.model.csv.CustomerOrderSummary;
 import com.assignment.rewarder.model.CustomerVoucher;
 import com.assignment.rewarder.service.VouchersService;
@@ -7,12 +8,15 @@ import com.opencsv.CSVReader;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -55,6 +59,7 @@ public class VouchersController {
         .withType(CustomerOrderSummary.class).build().parse();
     } catch (Exception e) {
       System.out.println(e.getStackTrace());
+      throw new BadCsvException(e.getMessage());
     }
 
     return this.vouchersService.generateVouchers(customerOrderSummaries);

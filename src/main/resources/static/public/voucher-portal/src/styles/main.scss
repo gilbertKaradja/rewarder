@@ -4,23 +4,14 @@
 @import
     'base/base';
 
-
-//Import abstracts files
-@import
-    'abstracts/mixins',
-    'abstracts/animations';
-
-
 //Import layout/page styles
 @import
-    'layout/Main',
-    'layout/ArticlesScreen';
+    'layout/Main';
 
 
 //Import component styles
 @import
-    'components/DropDown',
     'components/TablePaginator',
-    'components/ArticleEntry',
     'components/_VoucherTemplate',
-    'components/FilePickerArea';
+    'components/FilePickerArea',
+    'components/NotificationBox';
